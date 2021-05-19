@@ -583,7 +583,7 @@ filter: brightness(0.6);
   margin-left: 66px;
 }
 
-.newday-override {background-image: url(/Rectangle\ 31.svg) !important;padding: 28px !important;height: 225px;}
+.newday-override {background-image: url(/Rectangle\ 31.svg) !important;padding: 28px !important;height: 225px;background-size: cover;}
 
 .newday-outline {border: solid 2px white;background-color: transparent;color: white;margin-left: 5px;}
 
@@ -1531,7 +1531,7 @@ footer {
 
         .slide-text-container {width: 94%;}
 
-        .newday-override {height: fit-content;}
+        .newday-override {height: fit-content;border-radius: 7px;}
 
 .newday-override > h5 {margin-top: 0px;}
 
