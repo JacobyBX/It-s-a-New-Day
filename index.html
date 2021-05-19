@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>It's a New Day</title>
     <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/vivify.min.css">
 </head>
-<body>
+<body class="vivify fadeIn delay-100">
   
     <div class="newday-banner">
         <p class="over-text"> Weekdays 9am - 12pm on JZ 94.5</p>
@@ -27,7 +28,7 @@
         <a href="tel:2288969455"><button class="newday-btn newday-outline">Call Now</button></a>
         </div>
         </div>
-        <div class="slideshow-container" id="newsFeed"></div>  
+        <div class="slideshow-container " id="newsFeed"></div>  
         </div>
     </div>
         <script>
@@ -175,16 +176,19 @@ $.getJSON('https://api.sheety.co/1c0174d5b32dbebdf6f1e14d6ba67a4f/rss/itsanewday
     
    
         {{#each this}}
-        <div class="mySlides fade vivify">
-    <div class="news-item">
+        <div class="mySlides fade ">
+    <div class="news-item vivify fadeIn delay-100">
         <p>{{date}}</p>
         <h3 style="color: white;"> 
             {{description}}
             </h3>
+            <h5 id="stringPassOutput2{{id}}">
+                {{title}}
+            </h5>
             <a href="{{link}}">
                 <button class="small-live"><img src="/images/listenbtn.svg"><p>Listen Now</p></button>
             </a>
-           
+            <img onload="stringPass2('{{id}}')" src="/images/tiny.svg">
     </div>
        
        
@@ -224,6 +228,10 @@ $.getJSON('https://api.sheety.co/1c0174d5b32dbebdf6f1e14d6ba67a4f/rss/itsanewday
 <script>
     function stringPass(id){
 document.getElementById('stringPassOutput' + id).innerHTML = document.getElementById('stringPassOutput' + id).innerHTML.substring(40);
+    }
+
+    function stringPass2(id){
+document.getElementById('stringPassOutput2' + id).innerHTML = document.getElementById('stringPassOutput2' + id).innerHTML.substring(57);
     }
 </script>
 </body>
