@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's a New Day</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+  
+    <div class="newday-banner">
+        <p class="over-text"> Weekdays 9am - 12pm on JZ 94.5</p>
+        <a href="https://www.facebook.com/ItsANewDayWithRipDaniels/?ref=page_internal">
+            <div class="social-text"><img src="images/facebook.svg"><p>Like Us On Facebook</p></div>
+        </a>
+        
+        <img class="newday-img" src="/images/rip.png">
+        <div class="text-m">
+
+       
+        <div class="newday-text-container">
+        <h1>IT'S A NEW DAY</h1>
+        <p>With Rip Daniels & Rowe Evans</p>
+        <div class="newday-btns">
+        <a href=""><button id="live"  class="newday-btn">Listen Live</button></a>
+        <a href="tel:2288969455"><button class="newday-btn newday-outline">Call Now</button></a>
+        </div>
+        </div>
+        <div class="slideshow-container" id="newsFeed"></div>  
+        </div>
+    </div>
+        <script>
+         document.getElementById('live').onclick = () => {
+          window.open('http://jz945.ml', "myWindow", 'width=450,height=750');
+        };
+        
+        </script>
+        
+     
+   
+        <h3 style="display: none;" class="archive-text">Archive</h3>
+
+
+        <div id="audioFeed"></div>
+
+
+<script src="/jquery.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script><!-- online handlebars.js-->
+<script>
+    
+    $(document).ready(function () {
+$.getJSON('https://api.sheety.co/1c0174d5b32dbebdf6f1e14d6ba67a4f/rss/itsanewday', function (data) {
+    var template = Handlebars.compile($('#data-template').html())
+    $('#audioFeed').html(template(data.itsanewday))
+})
+});
+</script>
+
+<script id="data-template" type="text/x-handlebars-template">
+   
+    
+    {{#each this}}
+    <a rel="noreferrer" href="{{link}}" target="_blank"> 
+    
+    <div class="audio-slice">
+        <div  class="content-item"  data-aos="fade-up">
+       
+<div class="newday-override slide-text-container exc ">
+
+<h5>{{date}}</h5>
+   <h3 id="stringPassOutput{{id}}">{{title}}</h3>
+   
+   <p>{{description}}</p>         
+   <div class="slide-button-container">
+
+   </div>   
+   <img onload="stringPass('{{id}}')" src="/images/tiny.svg">
+</div>
+</div>
+</div>
+</a>
+    {{/each}}
+
+</script>
+<style>
+    * {box-sizing: border-box;}
+   
+    .mySlides {display: none;}
+    img {vertical-align: middle;}
+    
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+    
+    /* Caption text */
+    .text {
+      color: #f2f2f2;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+    
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+    
+    /* The dots/bullets/indicators */
+    .dot {
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+    
+    .active {
+      background-color: #717171;
+    }
+    
+    /* Fading animation */
+    .fade {
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 1.5s;
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+    
+    @-webkit-keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+    
+    @keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+    
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+      .text {font-size: 11px}
+    }
+    </style>
+  
+ 
+    
+   
+  
+    
+<script>
+    
+    $(document).ready(function () {
+$.getJSON('https://api.sheety.co/1c0174d5b32dbebdf6f1e14d6ba67a4f/rss/itsanewday', function (data) {
+    var template = Handlebars.compile($('#data-template2').html())
+    $('#newsFeed').html(template(data.itsanewday))
+})
+});
+</script>
+
+<script id="data-template2" type="text/x-handlebars-template">
+   
+    
+   
+        {{#each this}}
+        <div class="mySlides fade vivify">
+    <div class="news-item">
+        <p>{{date}}</p>
+        <h3 style="color: white;"> 
+            {{description}}
+            </h3>
+            <a href="{{link}}">
+                <button class="small-live"><img src="/images/listenbtn.svg"><p>Listen Now</p></button>
+            </a>
+           
+    </div>
+       
+       
+    
+        </div>
+        {{/each}}
+      
+        
+       
+  
+       
+           
+
+
+
+</script>
+   
+
+<script>
+    var slideIndex = 0;
+    setTimeout(showSlides, 2000);
+    
+    
+    function showSlides() {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      slides[slideIndex-1].style.display = "block"; 
+      setTimeout(showSlides, 12000); // Change image every 2 seconds
+    }
+    </script>
+<script>
+    function stringPass(id){
+document.getElementById('stringPassOutput' + id).innerHTML = document.getElementById('stringPassOutput' + id).innerHTML.substring(40);
+    }
+</script>
+</body>
+</html>
