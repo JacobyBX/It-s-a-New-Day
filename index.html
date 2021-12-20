@@ -87,7 +87,6 @@ $.getJSON('https://api.sheety.co/1c0174d5b32dbebdf6f1e14d6ba67a4f/rss/itsanewday
        
 <div class="newday-override slide-text-container exc ">
 
-<h5>{{date}}</h5>
    <h3 id="stringPassOutput{{id}}">{{title}}</h3>
    
    <p>{{description}}</p>         
@@ -245,7 +244,7 @@ $.getJSON('https://api.sheety.co/1c0174d5b32dbebdf6f1e14d6ba67a4f/rss/itsanewday
     </script>
 <script>
     function stringPass(id){
-document.getElementById('stringPassOutput' + id).innerHTML = document.getElementById('stringPassOutput' + id).innerHTML.substring(40);
+document.getElementById('stringPassOutput' + id).innerHTML = document.getElementById('stringPassOutput' + id).innerHTML.substring(15);
     }
 
     function stringPass2(id){
